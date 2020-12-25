@@ -22,11 +22,16 @@ YouTubePlayerView playerView;
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                         YouTubePlayer youTubePlayer, boolean b) {
-        if (!b)
+        /*if (!b)
         {
             youTubePlayer.loadVideo("6HzKeb2H3xU");
             youTubePlayer.play();
-        }
+        }*/
+
+        Bundle bundle = getIntent().getExtras();
+        String showVideo = bundle.getString("videoId");
+        //Log.e(TAG,"Video" +showVideo);
+        youTubePlayer.cueVideo(showVideo);
     }
 
     @Override
